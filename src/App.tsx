@@ -1,12 +1,13 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.scss";
+import TipCalculatorPage from "./Pages/TipCalculatorPage";
 
 const theme = createTheme({
   typography: {
     body1: {
-      fontSize: 18,
+      fontSize: 24,
     },
-    fontFamily: "xxxx",
+    fontFamily: "Space Mono",
   },
   components: {
     MuiList: {
@@ -16,7 +17,7 @@ const theme = createTheme({
     },
     MuiListItem: {
       defaultProps: {
-        // disablePadding: true,
+        disablePadding: true,
       },
     },
   },
@@ -25,7 +26,9 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="app"></div>
+      <div className="app">
+        <TipCalculatorPage />
+      </div>
     </ThemeProvider>
   );
 }

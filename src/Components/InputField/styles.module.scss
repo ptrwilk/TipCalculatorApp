@@ -1,0 +1,28 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 10px;
+
+    :last-child{
+        grid-row: 2 / 2;
+        grid-column: 1 / span 2;
+    }
+
+    .error,
+    .caption{
+        margin-bottom: .5rem;
+        font-size: 1.8em;
+        color: var(--darkgrayishcyan);
+    }
+
+    &:not(:has(.error)) .caption{
+        grid-column: 1 / span 2;
+    }
+
+    .error{
+        align-self: flex-end;
+        text-align: right;
+        color: var(--red);
+    }
+}
+

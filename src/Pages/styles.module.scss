@@ -1,0 +1,128 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+
+    .header{
+        display: flex;
+        justify-content: center;
+        padding: 2.5rem 0;
+    }
+
+    .main{
+        padding: 2rem;
+        border-radius: 2rem 2rem 0 0;
+        background: var(--white);
+
+        .section{
+            margin-top: 2rem;
+    
+            .title{
+                font-size: 1.8em;
+                color: var(--darkgrayishcyan);
+            }
+    
+            .tips{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+    
+                .btn{
+                    width: 100%;
+                    font-size: 2.2em;
+                    color: var(--white);
+                    background: var(--verydarkcyan);
+
+                    &.btn-selected{
+                        color: var(--verydarkcyan);
+                        background: var(--strongcyan);
+                    }
+    
+                    &:hover{
+                        color: var(--verydarkcyan);
+                        background: var(--lightercyan);
+                    }
+                }
+            }
+        }
+    
+        .input-people{
+            margin-top: 2rem;
+        }
+
+        .display{
+            margin-top: 2rem;
+        }
+    }
+
+    @media (min-width: 500px) {
+        .main .section .tips{
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+    }
+
+    @media (min-width: 600px) {
+        .main .section .tips{
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .main .section .tips .tip:last-child{
+            grid-column: 3 / span 2;
+        }
+    }
+
+    @media (min-width: 700px) {
+        .main .section .tips{
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .main .section .tips .tip:last-child{
+            grid-column: 4 / span 2;
+        }
+    }
+
+    @media (min-width: 768px) {
+        max-width: 768px;
+        
+        .main{
+            border-radius: 2rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 1024px;
+        margin-top: 7rem;
+
+        .header{
+            padding: 5rem;
+        }
+        
+        .main{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 2rem;
+            box-shadow: 0 10px 30px rgb(0, 0, 0, 0.2);
+
+            .input-bill,
+            .section,
+            .input-people{
+                grid-column: 1;
+            }
+
+            .section .tips{
+                grid-template-columns: repeat(3, 1fr);
+
+                .tip:last-child{
+                    grid-column: auto;
+                }
+            }
+
+            .display{
+                grid-area: 1 / 2 / span 3 / 2;
+                margin-top: 0;
+            }
+        }
+    }
+}
