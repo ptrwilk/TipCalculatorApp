@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useInputField = () => {
-  const [data, setData] = useState<number | undefined>();
+export const useInputField = (initialValue?: number) => {
+  const [data, setData] = useState<number | undefined>(initialValue);
 
   const handleValueChange = (value?: any) => {
     setData(value);

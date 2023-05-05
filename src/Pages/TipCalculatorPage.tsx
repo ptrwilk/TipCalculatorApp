@@ -19,18 +19,22 @@ const calculateTipAmount = (
     : undefined;
 };
 
-const calculateTotal = (bill?: number, people?: number): number | undefined => {
+const calculateTotal = (
+  bill?: number,
+  people?: number,
+  tipAmount?: number
+): number | undefined => {
   if (!people || people === 0) return undefined;
 
-  return bill && people ? bill / people : undefined;
+  return bill && people ? bill / people + (tipAmount ?? 0) : undefined;
 };
 
 const TipCalculatorPage = () => {
-  const bill = useInputField();
+  const bill = useInputField(142.55);
   const custom = useInputField();
-  const people = useInputField();
+  const people = useInputField(5);
 
-  const [tip, setTip] = useState<number | undefined>(undefined);
+  const [tip, setTip] = useState<number | undefined>(15);
 
   const handleTipClick = (percent: number) => {
     setTip(tip === percent ? undefined : percent);
@@ -50,7 +54,7 @@ const TipCalculatorPage = () => {
     people.numeric
   );
 
-  const total = calculateTotal(bill.numeric, people.numeric);
+  const total = calculateTotal(bill.numeric, people.numeric, tipAmount);
 
   const resetDisabled = !bill.value && !custom.value && !people.value && !tip;
 
